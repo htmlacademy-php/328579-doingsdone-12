@@ -52,6 +52,27 @@ $taskinfo = [
 
 ];
 
+
+function my_func_elements($taskinfo, $project) {
+
+  $number_of_elements = 0;
+
+  foreach ($taskinfo as $task) {
+
+  if($task['cat'] == $project)  {
+
+  $number_of_elements = $number_of_elements + 1;
+
+
+  }
+
+
+  }
+
+  return $number_of_elements;
+
+}
+
 ?>
 
 
@@ -93,10 +114,13 @@ $taskinfo = [
 
                 <nav class="main-navigation">
                     <ul class="main-navigation__list">
+
                      <?php foreach ($projectlist as $project): ?>
                         <li class="main-navigation__list-item">
                             <a class="main-navigation__list-item-link" href="#"><?=$project;?></a>
-                            <span class="main-navigation__list-item-count">0</span>
+
+                            <span class="main-navigation__list-item-count"><?= my_func_elements($taskinfo, $project) ?></span>
+
                         </li>
                      <?php endforeach; ?>
 
