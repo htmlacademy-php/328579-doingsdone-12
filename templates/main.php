@@ -48,9 +48,13 @@
 
         <?php foreach ($taskinfo as $taskin): ?>
 
+
+
+
+
             <?php if($taskin['done'] == 'true' && $show_complete_tasks == 0) continue; ?>
 
-            <tr class="tasks__item task <?php if($taskin['done'] == 'true'): ?>task--completed<?php endif; ?>">
+            <tr class="tasks__item task <?php if($taskin['done'] == 'true'): ?>task--completed<?php endif; ?><?php if(my_rem_hours($taskin['datecom']) == true): ?>task--important<?php endif; ?>">
 
                 <td class="task__select">
                     <label class="checkbox task__checkbox">
@@ -65,7 +69,6 @@
 
                 <td class="task__date"><?= htmlspecialchars($taskin['datecom']);?></td>
             </tr>
-
 
 
 

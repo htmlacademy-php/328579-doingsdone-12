@@ -1,8 +1,9 @@
 <?php
 
-require_once('helpers.php');
+date_default_timezone_set('Europe/Moscow');
 
-require_once('function.php');
+const HDAY = 24;
+
 
 
 $user_name = 'Константин';
@@ -15,7 +16,7 @@ $taskinfo = [
 
 [
       'task'  => 'Собеседование в IT компании' ,
-      'datecom' => '01.12.2019' ,
+      'datecom' => '06.10.2021' ,
       'cat' => 'Работа' ,
       'done' => 'false'
 
@@ -23,21 +24,21 @@ $taskinfo = [
 
 [
      'task'  => 'Выполнить тестовое задание' ,
-     'datecom' => '25.12.2019' ,
+     'datecom' => '05.10.2021' ,
      'cat' => 'Работа' ,
      'done' => 'false'
 ],
 
 [
      'task'  => 'Сделать задание первого раздела' ,
-     'datecom' => '21.12.2019' ,
+     'datecom' => '21.12.2021' ,
      'cat' => 'Учеба' ,
      'done' => 'true'
 ],
 
  [
      'task'  => 'Встреча с другом' ,
-     'datecom' => '22.12.2019' ,
+     'datecom' => '22.12.2021' ,
      'cat' => 'Входящие' ,
      'done' => 'false'
 ],
@@ -58,7 +59,9 @@ $taskinfo = [
 
 ];
 
+require_once('helpers.php');
 
+require_once('function.php');
 
 
 

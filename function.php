@@ -20,4 +20,24 @@ function my_func_elements($taskinfo, $project) {
 
 }
 
+
+function my_rem_hours($inputdate, $time = HDAY) {
+
+    $current_timestamp = time();
+
+    $task_timestamp = strtotime($inputdate);
+
+    $imp_date = floor(($task_timestamp - $current_timestamp)/3600);
+
+    if ($imp_date <= $time && $task_timestamp != false ) {
+
+      return true;
+
+    }  else
+
+        return false;
+
+
+}
+
 ?>
