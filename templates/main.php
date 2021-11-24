@@ -6,11 +6,12 @@
 
             <?php foreach ($projectlist as $project): ?>
                 <li class="main-navigation__list-item">
-                    <a class="main-navigation__list-item-link" href="#"><?=htmlspecialchars($project);?></a>
+                    <a class="main-navigation__list-item-link" href="#"><?=htmlspecialchars($project['name']);?></a>
 
-                    <span class="main-navigation__list-item-count"><?= my_func_elements($taskinfo, $project) ?></span>
+                    <span class="main-navigation__list-item-count"><?= my_func_elements($taskinfo, $project[id]) ?></span>
 
                 </li>
+
             <?php endforeach; ?>
 
         </ul>
@@ -49,17 +50,14 @@
         <?php foreach ($taskinfo as $taskin): ?>
 
 
+            <?php if($taskin['date_expired'] == 'true' && $show_complete_tasks == 0) continue; ?>
 
-
-
-            <?php if($taskin['done'] == 'true' && $show_complete_tasks == 0) continue; ?>
-
-            <tr class="tasks__item task <?php if($taskin['done'] == 'true'): ?>task--completed<?php endif; ?><?php if(my_rem_hours($taskin['datecom']) == true): ?>task--important<?php endif; ?>">
+            <tr class="tasks__item task <?php if($taskin['date_expired'] == 'true'): ?>task--completed<?php endif; ?><?php if(my_rem_hours($taskin['date_expired']) == true): ?>task--important<?php endif; ?>">
 
                 <td class="task__select">
                     <label class="checkbox task__checkbox">
                         <input class="checkbox__input visually-hidden task__checkbox" type="checkbox" value="1">
-                        <span class="checkbox__text" ><?= htmlspecialchars($taskin['task']);?></span>
+                        <span class="checkbox__text" ><?= htmlspecialchars($taskin['title']);?></span>
                     </label>
                 </td>
 
@@ -67,7 +65,7 @@
                     <a class="download-link" href="#">Home.psd</a>
                 </td>
 
-                <td class="task__date"><?= htmlspecialchars($taskin['datecom']);?></td>
+                <td class="task__date"><?= htmlspecialchars($taskin['date_expired']);?></td>
             </tr>
 
 

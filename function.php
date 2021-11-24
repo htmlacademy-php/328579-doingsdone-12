@@ -1,12 +1,38 @@
 <?php
 
-function my_func_elements($taskinfo, $project) {
+
+
+//Функция берет прожект лист из базы по юзерайди
+
+function getprojectlist($link, $userID) {
+
+    $sql = "SELECT * FROM projects WHERE user_id = $userID";
+    $result = mysqli_query($link, $sql);
+    $list = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    return $list;
+
+}
+
+//Функиця берет задачи из базы по юзерайди
+
+function getprojecttask($link, $userID) {
+
+    $sql = "SELECT * FROM task WHERE user_id = $userID";;
+    $result = mysqli_query($link, $sql);
+    $list = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    return $list;
+
+}
+
+//Функиця считает кол-во задач в каждом проекте для указанного пользователя
+
+function my_func_elements($taskinfo, $userID) {
 
     $number_of_elements = 0;
 
     foreach ($taskinfo as $task) {
 
-        if($task['cat'] == $project)  {
+        if($task['project_id'] == $userID)  {
 
             $number_of_elements = $number_of_elements + 1;
 

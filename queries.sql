@@ -22,7 +22,7 @@ VALUES ('Входящие', (SELECT id FROM users u WHERE u.email = 'loss@gmail.
 
 
 INSERT INTO task
-  (title, data_exp, proeject_id, user_id, status)
+  (title, date_expired, project_id, user_id, status)
 VALUES ('Собеседование в IT компании', STR_TO_DATE('06.10.2021', '%d.%m.%Y'), (SELECT id FROM projects p WHERE p.name = 'Входящие'), (SELECT id FROM users u WHERE u.email = 'loss@gmail.com'), 0),
        ('Выполнить тестовое задание', STR_TO_DATE('05.10.2021', '%d.%m.%Y'), (SELECT id FROM projects p WHERE p.name = 'Входящие'), (SELECT id FROM users u WHERE u.email = 'loss@gmail.com'), 0),
        ('Сделать задание первого раздела', STR_TO_DATE('21.12.2021', '%d.%m.%Y'), (SELECT id FROM projects p WHERE p.name = 'Учеба'), (SELECT id FROM users u WHERE u.email = 'loss@gmail.com'), 1),
